@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/reset.css";
-import "../styles/App.css";
+import "../styles/Plist.css";
 
 import InputForm from "./InputForm";
 

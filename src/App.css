@@ -15,6 +15,7 @@
 
 .panel {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -33,7 +34,9 @@ body {
 }
 
 .content {
-  flex-grow: 2;
+  resize:horizontal;
+  width:100%; 
+  overflow:hidden;
   background: white;
 }
 
