@@ -8,32 +8,32 @@ import List from './List';
 
 import EditItem from "./EditItem";
 
-class Plist extends Component {
+const Plist = props => {
   //There are two objects, pendingEdit and pendingItemc, one for editing and one for submitting. They hold temporary coords that are later put into the official list via the newItemSubmitHandler and editHandler respectively.
-  constructor(props) {
-    super(props);
-
-    // getInitialState
-    this.state = {
-      list: [],
-
-      pendingItem: "",
-
-      pendingEdit: {
-        x: '',
-        y: '',
-        z: '',
-      },
-
-      pendingItemc: {
-        x: '',
-        y: '',
-        z: '',
-      },
-
-      showEdit: false
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   // getInitialState
+  //   this.state = {
+  //     list: [],
+  //
+  //     pendingItem: "",
+  //
+  //     pendingEdit: {
+  //       x: '',
+  //       y: '',
+  //       z: '',
+  //     },
+  //
+  //     pendingItemc: {
+  //       x: '',
+  //       y: '',
+  //       z: '',
+  //     },
+  //
+  //     showEdit: false
+  //   };
+  // }
 
   //checkvalues checks the values in the three input forms so that the newItemSubmitHandler doesn't submit any non-integers
   checkvalues = (X,Y,Z) => {
@@ -255,17 +255,17 @@ class Plist extends Component {
     console.log(this.state.list[0]);
   }*/
 
-  render() {
-    return (
-      <div className="wrapperList">
-        <InputForm
+  return (
+    <div className="wrapperList">
+      <InputForm
         newItemSubmitHandler = {this.newItemSubmitHandler}
         handleItemInput = {this.handleItemInput}
         pendingItem = {this.state.pendingItem}
         pendingItemc = {this.state.pendingItemc}
-        />
+      />
 
-        <List list = {this.state.list}
+      <List
+        list = {this.state.list}
         handleRemove = {this.handleRemove}
         handleCheck = {this.handleCheck}
         handleEditClick = {this.handleEditClick}
@@ -273,21 +273,20 @@ class Plist extends Component {
         editHandler = {this.editHandler}
         handleItemEdit = {this.handleItemEdit}
         pendingEdit = {this.state.pendingEdit}
-        />
+      />
 
-        <button className= "buttonList" onClick={this.handlecRemove}>
-          Delete Checked
-        </button>
+      <button className= "buttonList" onClick={this.handlecRemove}>
+        Delete Checked
+      </button>
 
-        <br/>
+      <br/>
 
-        <button className = "buttonList" type = "submit" onClick={this.deleteall}>
-          Delete All
-        </button>
+      <button className = "buttonList" type = "submit" onClick={this.deleteall}>
+        Delete All
+      </button>
 
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Plist;
